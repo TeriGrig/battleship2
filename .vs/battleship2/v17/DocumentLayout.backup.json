@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\terez\\source\\repos\\battleship2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A5C70A8E-9C12-4FC5-9535-3EB3C011B690}|battleship2\\battleship2.csproj|C:\\Users\\terez\\source\\repos\\battleship2\\battleship2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A5C70A8E-9C12-4FC5-9535-3EB3C011B690}|battleship2\\battleship2.csproj|solutionrelative:battleship2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A5C70A8E-9C12-4FC5-9535-3EB3C011B690}|battleship2\\battleship2.csproj|c:\\users\\terez\\source\\repos\\battleship2\\battleship2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5C70A8E-9C12-4FC5-9535-3EB3C011B690}|battleship2\\battleship2.csproj|solutionrelative:battleship2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A5C70A8E-9C12-4FC5-9535-3EB3C011B690}|battleship2\\battleship2.csproj|C:\\Users\\terez\\source\\repos\\battleship2\\battleship2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A5C70A8E-9C12-4FC5-9535-3EB3C011B690}|battleship2\\battleship2.csproj|solutionrelative:battleship2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A5C70A8E-9C12-4FC5-9535-3EB3C011B690}|battleship2\\battleship2.csproj|C:\\Users\\terez\\source\\repos\\battleship2\\battleship2\\ship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5C70A8E-9C12-4FC5-9535-3EB3C011B690}|battleship2\\battleship2.csproj|solutionrelative:battleship2\\ship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C70A8E-9C12-4FC5-9535-3EB3C011B690}|battleship2\\battleship2.csproj|C:\\Users\\terez\\source\\repos\\battleship2\\battleship2\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C70A8E-9C12-4FC5-9535-3EB3C011B690}|battleship2\\battleship2.csproj|solutionrelative:battleship2\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,27 +34,39 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\Users\\terez\\source\\repos\\battleship2\\battleship2\\Enemy.cs",
+              "RelativeDocumentMoniker": "battleship2\\Enemy.cs",
+              "ToolTip": "C:\\Users\\terez\\source\\repos\\battleship2\\battleship2\\Enemy.cs",
+              "RelativeToolTip": "battleship2\\Enemy.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "OverriddenGroupName": "battleship2",
+              "WhenOpened": "2025-01-27T18:52:05.395Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Ship.cs",
               "DocumentMoniker": "C:\\Users\\terez\\source\\repos\\battleship2\\battleship2\\Ship.cs",
               "RelativeDocumentMoniker": "battleship2\\Ship.cs",
               "ToolTip": "C:\\Users\\terez\\source\\repos\\battleship2\\battleship2\\Ship.cs",
               "RelativeToolTip": "battleship2\\Ship.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAYwEUAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "OverriddenGroupName": "battleship2",
-              "WhenOpened": "2025-01-19T17:02:06.472Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-19T17:02:06.472Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\terez\\source\\repos\\battleship2\\battleship2\\Form1.cs",
               "RelativeDocumentMoniker": "battleship2\\Form1.cs",
-              "ToolTip": "C:\\Users\\terez\\source\\repos\\battleship2\\battleship2\\Form1.cs*",
-              "RelativeToolTip": "battleship2\\Form1.cs*",
-              "ViewState": "AgIAANsAAAAAAAAAAAAkwN8AAAAaAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\terez\\source\\repos\\battleship2\\battleship2\\Form1.cs",
+              "RelativeToolTip": "battleship2\\Form1.cs",
+              "ViewState": "AgIAAGIBAAAAAAAAAAAIwIQBAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "OverriddenGroupName": "battleship2",
               "WhenOpened": "2025-01-19T15:54:55.288Z",
@@ -58,15 +74,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\terez\\source\\repos\\battleship2\\battleship2\\Form1.cs",
               "RelativeDocumentMoniker": "battleship2\\Form1.cs",
-              "ToolTip": "C:\\Users\\terez\\source\\repos\\battleship2\\battleship2\\Form1.cs [Design]*",
-              "RelativeToolTip": "battleship2\\Form1.cs [Design]*",
+              "ToolTip": "C:\\Users\\terez\\source\\repos\\battleship2\\battleship2\\Form1.cs [Design]",
+              "RelativeToolTip": "battleship2\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T15:34:35.069Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-01-19T15:34:35.069Z"
             }
           ]
         }

@@ -9,6 +9,7 @@ namespace battleship2
         public readonly int shipSize;
         private List<int[]> coordinates = new List<int[]>();
         private bool m = false;
+        bool ok = false;
         // Horizontal 0
         public int direction = 0;
         int sumOfHits = 0;
@@ -22,52 +23,38 @@ namespace battleship2
             BackColor = Color.Transparent;
         }
 
-        public bool SetPosition(ref bool[,] map, int y, int x)
+        public bool getOk()
         {
-            int z = 0;
-            int x1 = x;
-            int y1 = y;
-            bool b = true;
+            return ok;
+        }
+
+
+        public void move(ref bool[,] map)
+        {
             if (m)
             {
+                // if it has been already moved
                 foreach (var c in coordinates)
                 {
                     map[c[1], c[0]] = false;
                 }
                 coordinates.Clear();
             }
-            for (int i = 0; i < shipSize; i++)
-            {
-                if (!map[y1, x1])
-                {
-                    z++;
-                    x1 += 1 ^ direction;
-                    y1 += direction;
-                }
-            }
-            if (z == shipSize)
-            {
-                for (int i = 0; i < shipSize; i++)
-                {
-                    coordinates.Add(new int[] { x, y });
-                    map[y, x] = true;
-                    x += 1 ^ direction;
-                    y += direction;
-                }
-            }
-            else if (z != shipSize)
-            {
-                for (int i = 0; i < shipSize; i++)
-                {
-                    coordinates.Add(new int[] { x * direction, y * (1 ^ direction) });
-                    map[y, x] = true;
-                    x += 1 ^ direction;
-                    y += direction;
-                }
-                b = false;
-            }
+        }
+
+        public void SetPosition(ref bool[,] map, int x, int y)
+        {
+            ok = true;
             m = true;
-            return b;
+            coordinates.Add(new int[] { x, y });
+            map[y, x] = true;
+            for (int i = 1; i < shipSize; i++)
+            {
+                x += 1 ^ direction;
+                y += direction;
+                coordinates.Add(new int[] { x, y });
+                map[y, x] = true;
+            }
         }
 
         public void ClearPosition(ref bool[,] map)
