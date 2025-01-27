@@ -38,6 +38,7 @@
             this.b_image = new System.Windows.Forms.PictureBox();
             this.ac_image = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.s_image)).BeginInit();
@@ -68,31 +68,33 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.panel2.Location = new System.Drawing.Point(92, 4);
+            this.panel2.Location = new System.Drawing.Point(84, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1026, 598);
+            this.panel2.Size = new System.Drawing.Size(1200, 598);
             this.panel2.TabIndex = 3;
             // 
             // Play_Btn
             // 
-            this.Play_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Play_Btn.Location = new System.Drawing.Point(903, 458);
+            this.Play_Btn.BackColor = System.Drawing.Color.SteelBlue;
+            this.Play_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.Play_Btn.Location = new System.Drawing.Point(903, 478);
             this.Play_Btn.Name = "Play_Btn";
-            this.Play_Btn.Size = new System.Drawing.Size(75, 30);
+            this.Play_Btn.Size = new System.Drawing.Size(87, 40);
             this.Play_Btn.TabIndex = 26;
             this.Play_Btn.Text = "Play";
-            this.Play_Btn.UseVisualStyleBackColor = true;
+            this.Play_Btn.UseVisualStyleBackColor = false;
             this.Play_Btn.Click += new System.EventHandler(this.Play_Btn_Click);
             // 
             // Clear_Btn
             // 
-            this.Clear_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.Clear_Btn.BackColor = System.Drawing.Color.SteelBlue;
+            this.Clear_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.Clear_Btn.Location = new System.Drawing.Point(903, 383);
             this.Clear_Btn.Name = "Clear_Btn";
-            this.Clear_Btn.Size = new System.Drawing.Size(75, 30);
+            this.Clear_Btn.Size = new System.Drawing.Size(87, 40);
             this.Clear_Btn.TabIndex = 24;
             this.Clear_Btn.Text = "Clear";
-            this.Clear_Btn.UseVisualStyleBackColor = true;
+            this.Clear_Btn.UseVisualStyleBackColor = false;
             this.Clear_Btn.Click += new System.EventHandler(this.Clear_Btn_Click);
             // 
             // panel3
@@ -111,7 +113,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label2.Location = new System.Drawing.Point(16, 43);
+            this.label2.Location = new System.Drawing.Point(16, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(204, 29);
             this.label2.TabIndex = 25;
@@ -182,8 +184,17 @@
             this.panel4.Controls.Add(this.label8);
             this.panel4.Location = new System.Drawing.Point(280, 8);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(581, 576);
+            this.panel4.Size = new System.Drawing.Size(580, 575);
             this.panel4.TabIndex = 28;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(243, 3);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(71, 32);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "ΕΓΩ";
             // 
             // label3
             // 
@@ -208,9 +219,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(48, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(470, 32);
+            this.label1.Size = new System.Drawing.Size(484, 32);
             this.label1.TabIndex = 13;
-            this.label1.Text = "1     2    3     4    5     6    7     8     9   10";
+            this.label1.Text = "  1     2    3    4     5     6    7     8    9    10";
             // 
             // label12
             // 
@@ -294,15 +305,6 @@
             this.label8.Size = new System.Drawing.Size(31, 32);
             this.label8.TabIndex = 19;
             this.label8.Text = "Ζ";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(240, 3);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(71, 32);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "ΕΓΩ";
             // 
             // Form1
             // 
