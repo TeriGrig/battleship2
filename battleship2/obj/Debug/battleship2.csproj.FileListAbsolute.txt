@@ -8,3 +8,13 @@ C:\Users\terez\source\repos\battleship2\battleship2\obj\Debug\battleship2.csproj
 C:\Users\terez\source\repos\battleship2\battleship2\obj\Debug\battleship2.csproj.CoreCompileInputs.cache
 C:\Users\terez\source\repos\battleship2\battleship2\obj\Debug\battleship2.exe
 C:\Users\terez\source\repos\battleship2\battleship2\obj\Debug\battleship2.pdb
+C:\Users\pkele\Desktop\a\battleship2\battleship2\bin\Debug\battleship2.exe.config
+C:\Users\pkele\Desktop\a\battleship2\battleship2\bin\Debug\battleship2.exe
+C:\Users\pkele\Desktop\a\battleship2\battleship2\bin\Debug\battleship2.pdb
+C:\Users\pkele\Desktop\a\battleship2\battleship2\obj\Debug\battleship2.csproj.AssemblyReference.cache
+C:\Users\pkele\Desktop\a\battleship2\battleship2\obj\Debug\battleship2.Form1.resources
+C:\Users\pkele\Desktop\a\battleship2\battleship2\obj\Debug\battleship2.Properties.Resources.resources
+C:\Users\pkele\Desktop\a\battleship2\battleship2\obj\Debug\battleship2.csproj.GenerateResource.cache
+C:\Users\pkele\Desktop\a\battleship2\battleship2\obj\Debug\battleship2.csproj.CoreCompileInputs.cache
+C:\Users\pkele\Desktop\a\battleship2\battleship2\obj\Debug\battleship2.exe
+C:\Users\pkele\Desktop\a\battleship2\battleship2\obj\Debug\battleship2.pdb

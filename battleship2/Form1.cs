@@ -274,6 +274,7 @@ namespace battleship2
             }
         }
 
+        Panel panel6 = new Panel();
         public void create_enemy_board()
         {
             panel3.Visible = false;
@@ -287,7 +288,6 @@ namespace battleship2
             panel5.BackColor = panel4.BackColor;
             panel2.Controls.Add(panel5);
 
-            Panel panel6 = new Panel();
             panel6.Location = panel1.Location;
             panel6.Size = panel1.Size;
             panel6.BackgroundImage = panel1.BackgroundImage;
@@ -373,6 +373,9 @@ namespace battleship2
         // i hit the enemy board
         private void panel6_Click(object sender, EventArgs e)
         {
+            PictureBox p = new PictureBox();
+            p.Size = new Size(40, 40);
+            p.SizeMode = PictureBoxSizeMode.StretchImage;
             int hit_x = 0;
             int hit_y = 0;
             MouseEventArgs hit = (MouseEventArgs)e;
@@ -384,15 +387,22 @@ namespace battleship2
                         hit_y = j;
                     }
 
+            p.Location = new Point(boardSize[hit_x], boardSize[hit_y]);
             if (myHits[hit_y, hit_x] == null && enemyShips[hit_y, hit_x] == true)
             {
                 myHits[hit_y, hit_x] = true;
-                Console.WriteLine("You hit the enemy ship!");
+                p.Image = Image.FromFile("Images/Red_X.png");
+                panel6.Controls.Add(p);
+                
+                //Console.WriteLine("You hit the enemy ship!");
             }
             else if (myHits[hit_y, hit_x] == null && enemyShips[hit_y, hit_x] == false)
             {
                 myHits[hit_y, hit_x] = false;
-                Console.WriteLine("You missed!");
+                p.Image = Image.FromFile("Images/Green_Dash.png");
+                panel6.Controls.Add(p);
+
+                //Console.WriteLine("You missed!");
             }
             else if (myHits[hit_y, hit_x] != null)
             {
