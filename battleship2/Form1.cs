@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading;
 using System.Windows.Forms;
+using System.Data.SQLite;
+using System.Threading.Tasks;
 
 namespace battleship2
 {
@@ -27,30 +26,38 @@ namespace battleship2
 
         // Player's ships
         List<PictureBox> ships = new List<PictureBox>();
-        List<Ship> shipList = new List<Ship>();
-
-        // Pc's ships
-
+        List<Ship> shipList = new List<Ship>();  
 
         // Black table, false
-        private static bool[,] MyShips = new bool[10, 10];
+        private static bool[,] MyShips;
         // Green table, null        
-        private static bool?[,] myHits = new bool?[10, 10];
+        private static bool?[,] myHits;
 
         // Blue table, false
-        private static bool[,] enemyShips = new bool[10, 10];
+        private static bool[,] enemyShips;
         // Red table, null
-        private static bool?[,] enemyHits = new bool?[10, 10];
+        private static bool?[,] enemyHits;
 
         Enemy enemy;
 
-        int count = 0;
+        int ship_count = 0;
+        int tries;
+        int time = 0;
+        int wins = 0;
+        int loses = 0;
+
         Label label = new Label();
         Button play_button = new Button();
+        TextBox textBox = new TextBox();
 
         public Form1()
         {
             InitializeComponent();
+
+            MyShips = new bool[10, 10];
+            myHits = new bool?[10, 10];
+            enemyShips = new bool[10, 10];
+            enemyHits = new bool?[10, 10];
 
             for (int i = 2; i <= 5; i++)
             {
@@ -74,12 +81,20 @@ namespace battleship2
             panel2.Visible = false;
 
             label.Text = "Battleship!";
-            label.ForeColor = Color.DarkBlue;
+            label.ForeColor = Color.MidnightBlue;
             label.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
             label.Location = new Point(410, 100);
             label.AutoSize = true;
             label.BackColor = Color.LightCyan;
             this.Controls.Add(label);
+
+            
+            textBox.Location = new Point(410, 250);
+            textBox.Size = new Size(150, 100);
+            textBox.Visible = true;
+            textBox.Text = "Guest";
+            textBox.Font = new Font("Microsoft Sans Serif", 13);
+            this.Controls.Add(textBox);
 
             play_button = new Button();
             play_button.Text = "PLAY";
@@ -100,12 +115,16 @@ namespace battleship2
         }
 
         // play button 1
+        String name;
         private void play_button_Click(object sender, EventArgs e)
         {
+            name = textBox.Text;
             play_button.Visible = false;
             label.Visible = false;
             panel2.Visible = true;
             panel3.Visible = true;
+            textBox.Visible = false;
+            
         }
 
         // selection of the ship
@@ -184,9 +203,9 @@ namespace battleship2
                     {
                         for (int j = 0; j <= 10; j++)
                         {
-                            if (p.Location.X >= boardSize[i] && p.Location.X < boardSize[i + 1] && p.Location.Y >= boardSize[j] && p.Location.Y < boardSize[j + 1])
+                            if (p.Location.X >= boardSize[i] && p.Location.X < boardSize[i + 1] && p.Location.Y >= boardSize[j] && p.Location.Y < boardSize[j + 1] )
                             {
-                                if (i < 11 - size && j < 11 - size)
+                                if (i < 11 - size * (1 ^ d) && j < 11 - size * d)
                                     lockL(p, i, j, size);
                                 else
                                 {
@@ -202,7 +221,7 @@ namespace battleship2
                             }
                             else if ((p.Location.X >= boardSize[10] && p.Location.Y >= boardSize[j]) && p.Location.Y <= boardSize[j + 1] || (p.Location.Y >= boardSize[10] && p.Location.X >= boardSize[i] && p.Location.X <= boardSize[i + 1]))
                             {
-                                int k = (i * (1 ^ d) + j * d) + size - 10; // poso exei bgei exo to ploio
+                                int k = (i * d + j * (1 ^ d)) + size - 10; // poso exei bgei exo to ploio
                                 lockL(p, i - (k * (1 ^ d)), j - (k * d), size);
                                 break;
                             }
@@ -212,11 +231,12 @@ namespace battleship2
             }
         }
 
-        // chech that the ships don't intersect and lock the ship into position
+        // check that the ships don't intersect and lock the ship into position
         private void lockL(Ship p, int x, int y, int size)
         {
             if (check(x, y, p.direction, p.shipSize))
             {
+                Console.WriteLine(x + " " + y);
                 p.SetPosition(ref MyShips, x, y);
                 p.Location = new Point(boardSize[x], boardSize[y]);
             }
@@ -224,6 +244,8 @@ namespace battleship2
                 p.Location = new Point(boardSize[0], boardSize[0]);
             print(MyShips);
         }
+
+        // check if there is another ship
         private bool check(int x, int y, int d, int shipSize)
         {
             int z = 0;
@@ -270,32 +292,41 @@ namespace battleship2
             foreach (Ship s in shipList)
             {
                 s.ClearPosition(ref MyShips);
+                s.Location = new Point(0, 0);
             }
             print(MyShips);
         }
 
         // play button 2
-        bool playing;
+        bool playing = false;
         private void Play_Btn_Click(object sender, EventArgs e)
-        {            
-            playing = false;
+        {
             foreach (Ship s in shipList)
                 if (s.getOk())
-                    count++;
+                    ship_count++;
                 else
-                    break;
-            
-                if (count == 4)
                 {
-                playing = true;
+                    ship_count = 0;
+                    break;
+                }
+            
+                if (ship_count == 4)
+                {
+                    playing = true;
+                    tries = 0;
+                    timer1.Start();
                     create_enemy_board();
                     enemy.Play(ref MyShips);
                 }
                 else
                 {
                     MessageBox.Show("You must place all ships on the board!");
-                    count = 0;
                 }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            time++;
         }
 
         Panel panel6 = new Panel();
@@ -346,9 +377,11 @@ namespace battleship2
 
         // I hit the enemy board
         bool game_end = false;
-        private void panel6_Click(object sender, EventArgs e)
+        bool who_hit;
+        private async void panel6_Click(object sender, EventArgs e)
         {
-            bool b_hit = true;
+            who_hit = false; //false = emeis xtipisame
+            bool b_hit = true; //an exoume paijei
             String win = null;
             PictureBox p = new PictureBox();
             p.Size = new Size(panel6.Width / 12, panel6.Height / 12);
@@ -367,17 +400,24 @@ namespace battleship2
             p.Location = new Point(boardSize[hit_x], boardSize[hit_y]);
             if (myHits[hit_y, hit_x] == null && enemyShips[hit_y, hit_x] == true)
             {
+                tries++;
+                who_hit = false;
                 myHits[hit_y, hit_x] = true;
                 p.Image = Image.FromFile("Images/Red_X.png");
                 panel6.Controls.Add(p);
                 if (Hit(hit_y, hit_x, enemy.EnShip))
                 {
                     win = "Νίκησες!";
+                    wins++;
+                    timer1.Stop();
+                    SaveData(1);
                     game_end = true;
                 }
             }
             else if (myHits[hit_y, hit_x] == null && enemyShips[hit_y, hit_x] == false)
             {
+                tries++;
+                who_hit = false;
                 myHits[hit_y, hit_x] = false;
                 p.Image = Image.FromFile("Images/Green_Dash.png");
                 panel6.Controls.Add(p);
@@ -385,19 +425,20 @@ namespace battleship2
             else if (myHits[hit_y, hit_x] == true || myHits[hit_y, hit_x] == false)
             {
                 b_hit = false;
-                MessageBox.Show("You have already hit this position!");
             }
 
             // ---------------------------- When enemy hits my ships ----------------------------
             if (b_hit)
             {
-                //Thread.Sleep(2000);
+                who_hit = true;
+                await Task.Delay(500);
                 int[] a = enemy.GetMove();
                 PictureBox p1 = new PictureBox();
                 p1.Size = new Size(panel6.Width / 12, panel6.Height / 12);
                 p1.SizeMode = PictureBoxSizeMode.StretchImage;
                 p1.BackColor = Color.Transparent;
                 p1.Location = new Point(boardSize[a[0]], boardSize[a[1]]);
+
                 if (enemyHits[a[1], a[0]] == null && MyShips[a[1], a[0]] == true)
                 {
                     enemyHits[a[1], a[0]] = true;
@@ -414,16 +455,24 @@ namespace battleship2
                 if (Hit(a[1], a[0], shipList))
                 {
                     win = "Έχασες...";
+                    loses++;
+                    timer1.Stop();
+                    SaveData(0);
                     game_end = true;
                 }
 
                 if (game_end)
                 {
+                    timer1.Stop();
+                    Console.WriteLine(name, time.ToString());
                     Form2 form2 = new Form2(win);
+                    form2.GetData(time, tries, wins, loses);
                     form2.ShowDialog();
+                    Hide();
                 }
             }
         }
+
 
         private bool Hit(int y, int x, List<Ship> ships)
         {
@@ -435,7 +484,7 @@ namespace battleship2
                 {
                     if (c[0] == x && c[1] == y)
                     {
-                        s.SumHits();
+                        s.SumHits(who_hit);
                         break;
                     }
                 }
@@ -449,6 +498,38 @@ namespace battleship2
                 }
             }
             return b;
+        }
+
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void SaveData(int win)
+        {
+            string sqliteString = "Data Source = BattleshipData.db";
+            using (var connection = new SQLiteConnection(sqliteString))
+            {
+                connection.Open();
+
+                string createTable = "CREATE TABLE IF NOT EXISTS Data (Id INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, WIN INTEGER, TIME TEXT);";
+                using (var command = new SQLiteCommand(createTable, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+                string insertData = "INSERT INTO Data (NAME, WIN, TIME) VALUES (@Name, @Win, @Time);";
+                using (var command = new SQLiteCommand(insertData, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", name);
+                    command.Parameters.AddWithValue("@Win", win);
+                    command.Parameters.AddWithValue("@Time", time.ToString() + "sec");
+                    command.ExecuteNonQuery();
+
+                    connection.Close();
+                }
+            }
         }
     }
 }

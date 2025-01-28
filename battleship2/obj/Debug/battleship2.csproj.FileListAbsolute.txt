@@ -19,3 +19,12 @@ C:\Users\pkele\Desktop\a\battleship2\battleship2\obj\Debug\battleship2.csproj.Co
 C:\Users\pkele\Desktop\a\battleship2\battleship2\obj\Debug\battleship2.exe
 C:\Users\pkele\Desktop\a\battleship2\battleship2\obj\Debug\battleship2.pdb
 C:\Users\terez\source\repos\battleship2\battleship2\obj\Debug\battleship2.Form2.resources
+C:\Users\terez\source\repos\battleship2\battleship2\bin\Debug\EntityFramework.dll
+C:\Users\terez\source\repos\battleship2\battleship2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\terez\source\repos\battleship2\battleship2\bin\Debug\System.Data.SQLite.dll
+C:\Users\terez\source\repos\battleship2\battleship2\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\terez\source\repos\battleship2\battleship2\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\terez\source\repos\battleship2\battleship2\bin\Debug\EntityFramework.xml
+C:\Users\terez\source\repos\battleship2\battleship2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\terez\source\repos\battleship2\battleship2\bin\Debug\System.Data.SQLite.xml
+C:\Users\terez\source\repos\battleship2\battleship2\obj\Debug\battlesh.3FC75B4F.Up2Date

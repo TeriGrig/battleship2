@@ -43,6 +43,7 @@ namespace battleship2
                     map[c[1], c[0]] = false;
                 }
                 coordinates.Clear();
+                ok = false;
             }
         }
 
@@ -70,12 +71,15 @@ namespace battleship2
             coordinates.Clear();
         }
 
-        public void SumHits()
+        public void SumHits(bool w)
         {
             sumOfHits++;
             if (sumOfHits == shipSize)
             {
-                MessageBox.Show("Βυθίστηκε το " + names[shipSize-2]);
+                if (!w)
+                    MessageBox.Show("Βύθισες το " + names[shipSize-2] + " του αντιπάλου!");
+                else
+                    MessageBox.Show("Βυθίστηκε το " + names[shipSize - 2] + " σου!");
                 alive = false;
             }
         }

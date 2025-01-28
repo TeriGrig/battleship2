@@ -12,12 +12,13 @@ namespace battleship2
 {
     public partial class Form2 : Form
     {
+        Form1 f1 = new Form1();
         public Form2(String s)
         {
             InitializeComponent();
             MaximumSize = new Size(Width, Height);
             MinimumSize = new Size(Width, Height);
-            label1.Text = s;
+            label1.Text = s;            
         }
 
         private void end_Btn_Click(object sender, EventArgs e)
@@ -27,9 +28,13 @@ namespace battleship2
 
         private void replay_Btn_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            f1.ShowDialog();
-            Close();
+            Hide();
+            f1.Show();
+        }
+
+        public void GetData(int time, int tries, int wins, int loses) 
+        {
+            textBox1.Text = "Χρόνος: " + time.ToString() + " sec \n Προσπάθειες: " + tries.ToString() + "\n Νίκες:" + wins.ToString() + "\n Ήττες:" + loses.ToString();
         }
     }
 }
