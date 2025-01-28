@@ -9,6 +9,7 @@ namespace battleship2
     internal class Enemy
     {
         private Queue<int[]> moves = new Queue<int[]>();
+        public List<Ship> EnShip = new List<Ship>();
 
         public Enemy(ref bool[,] enemyShip)
         {
@@ -29,6 +30,7 @@ namespace battleship2
                         Ship ship = new Ship(size);
                         ship.direction = d;
                         ship.SetPosition(ref enemyShip, x, y);
+                        EnShip.Add(ship);
                         break;
                     }
                 } while (true);

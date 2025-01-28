@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -7,15 +8,18 @@ namespace battleship2
     internal class Ship : PictureBox
     {
         public readonly int shipSize;
-        private List<int[]> coordinates = new List<int[]>();
+        public List<int[]> coordinates = new List<int[]>();
         private bool m = false;
         bool ok = false;
         // Horizontal 0
+        public bool alive;
         public int direction = 0;
-        int sumOfHits = 0;
+        public int sumOfHits = 0;
+        public List<string> names = new List<string>() {"Υποβρύχιο", "Πολεμικό", "Αντιτορπιλικό", "Αεροπλανοφόρο"};
 
         public Ship(int shipSize)
         {
+            alive = true;
             this.shipSize = shipSize;
             SizeMode = PictureBoxSizeMode.StretchImage;
             Height = 40;
@@ -66,9 +70,14 @@ namespace battleship2
             coordinates.Clear();
         }
 
-        private void SumHits(int sum)
+        public void SumHits()
         {
-            sum++;
+            sumOfHits++;
+            if (sumOfHits == shipSize)
+            {
+                MessageBox.Show("Βυθίστηκε το " + names[shipSize-2]);
+                alive = false;
+            }
         }
     }
 }
