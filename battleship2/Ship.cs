@@ -32,7 +32,6 @@ namespace battleship2
             return ok;
         }
 
-
         public void move(ref bool[,] map)
         {
             if (m)

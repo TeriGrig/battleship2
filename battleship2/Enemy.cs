@@ -65,7 +65,6 @@ namespace battleship2
                 } while (where(x, y, list) && sumW < 14 && m3 <= 100);
                 list.Add(new int[] { x, y });
                 m3++;
-                Console.WriteLine(m3 + ": " + x + " " + y);
                 moves.Enqueue(new int[] { x, y });
                 if (mySh[y, x])
                 {
@@ -73,7 +72,6 @@ namespace battleship2
                     Console.WriteLine(x + " " + y);
                 }
             } while (sumW <= 14 && m3 <= 100);
-            Console.WriteLine("Win! sum: " + sumW + " m3: " + m3);
         }
 
         private bool where(int x, int y, List<int[]> l)

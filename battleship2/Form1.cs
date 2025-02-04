@@ -87,7 +87,6 @@ namespace battleship2
             label.AutoSize = true;
             label.BackColor = Color.LightCyan;
             this.Controls.Add(label);
-
             
             textBox.Location = new Point(410, 250);
             textBox.Size = new Size(150, 100);
@@ -236,13 +235,11 @@ namespace battleship2
         {
             if (check(x, y, p.direction, p.shipSize))
             {
-                Console.WriteLine(x + " " + y);
                 p.SetPosition(ref MyShips, x, y);
                 p.Location = new Point(boardSize[x], boardSize[y]);
             }
             else
                 p.Location = new Point(boardSize[0], boardSize[0]);
-            print(MyShips);
         }
 
         // check if there is another ship
@@ -268,24 +265,6 @@ namespace battleship2
                 return true;
         }
 
-        private void print(bool[,] map)
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    string x = " ";
-                    if (map[i, j])
-                        x = "1";
-                    else
-                        x = " ";
-                    Console.Write(x + "|");
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine("\n\n\n\n");
-        }
-
         private void Clear_Btn_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
@@ -294,7 +273,6 @@ namespace battleship2
                 s.ClearPosition(ref MyShips);
                 s.Location = new Point(0, 0);
             }
-            print(MyShips);
         }
 
         // play button 2
@@ -371,8 +349,6 @@ namespace battleship2
                 BackColor = panel_abc.BackColor
             };
             panel5.Controls.Add(p);
-
-            print(enemyShips);  
         }
 
         // I hit the enemy board
@@ -464,7 +440,6 @@ namespace battleship2
                 if (game_end)
                 {
                     timer1.Stop();
-                    Console.WriteLine(name, time.ToString());
                     Form2 form2 = new Form2(win);
                     form2.GetData(time, tries, wins, loses);
                     form2.ShowDialog();
